@@ -55,7 +55,7 @@ After compiling the samples (c++), you can run the samples as shown below (using
  
  
 
-
+`Update: I have uploaded a python 3 version.`
  
 
 
