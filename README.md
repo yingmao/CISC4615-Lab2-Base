@@ -56,6 +56,29 @@ After compiling the samples (c++), you can run the samples as shown below (using
  
 
 `Update: I have uploaded a python 3 version.`
+
+---
+
+### Lab 2 Part 2 Workflow
+
+1. A send the message along with the corresponding CRC to B. Based on sample 3, the client sends a message_1 with the CRC_1 to the server. Therefore, you do not need to change anything and use the client code of sample 3 to be your program A.
+
+2. (Based on server code of sample 3) When B receives the message_1 with CRC _1, we will need to decide whether it needs to change the message_1 or not.
+
+    2.1 B follows a 40% probability to change the message_1. There are multiple methods to construct a 40% event. For example, you can generate a random from 0 - 100, and change the message _1 if the number is less 40.
+
+    2.2 Please note that you only need to change message_1, not CRC_1. To change a message, you can just add a letter to it.
+
+   2.3 B forwards the message_2 (may or may not be the same as message_1 depends on the 40% probability) along with CRC_1 to C.
+
+3. (Based on server code of sample 3) When C receives a package that consists of message_2 and CRC_1, it needs to decide whether message_2 is the original one that sent by A. 
+
+   3.1 C will need to extract the message_2 and CRC_1 from the package. You can use the same code as the server in sample 3.
+
+   3.2 C will need to generate a CRC_2 based on message_1. How to generate it? Please check out the client code in sample 3.
+
+   3.3  C will need to compare CRC_2 with CRC_1 and depends on the result of the comparison, you need the print out the conclusion of whether the message is original or not.
+
  
 
 
