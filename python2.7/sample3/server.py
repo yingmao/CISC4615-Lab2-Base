@@ -13,6 +13,7 @@ print("Waiting...")
 while True:
     data, addr = s.recvfrom(1024)
     str,crc = struct.unpack("!50si",data)
+    str = str.decode("utf-8").replace("\0","")    
     print "str:%s\ncrc:%X" % (str,crc & 0xffffffff)
     if data == "bye":
         break

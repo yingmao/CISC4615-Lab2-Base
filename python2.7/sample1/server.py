@@ -10,6 +10,7 @@ s.bind(("0.0.0.0", int(sys.argv[1])))
 print("Waiting..")
 while True:
     data, addr = s.recvfrom(1024)
+    data = data.decode("utf-8").replace("\0","")
     print data
     if data == "bye":
         break
